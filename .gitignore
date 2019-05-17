@@ -1,0 +1,13 @@
+vendor
+build/
+.idea/
+.gradle
+*debug*
+*.iml
+.tags
+i18n/resources.go
+meta/resources.go
+apimeta/resources.go
+.vscode/
+*.exe
+.env_generated

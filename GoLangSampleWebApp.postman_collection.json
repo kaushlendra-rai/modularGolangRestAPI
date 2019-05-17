@@ -1,0 +1,61 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GoLangSampleWebApp",
+		"_postman_id": "17219132-f2dd-fdc1-cf6c-2abe8611e4c6",
+		"description": "Golang Sample Web application with Postgres Connectivity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateEmployee",
+			"request": {
+				"url": "http://localhost:80/employee",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createdBy\": \"sinkar\",\r\n    \"lastModifiedBy\": \"sinkar\",\r\n    \"name\": \"Kshitij Rai 2\",\r\n    \"age\": 21,\r\n    \"department\": \"BIPRD\",\r\n    \"joiningDate\": \"2011-02-27T09:15:41.8079702+05:30\"\r\n  }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmployeeDetails",
+			"request": {
+				"url": "http://localhost:80/employee/f430a332-fd9e-470b-8209-c07b27e35503",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEmployee",
+			"request": {
+				"url": "http://localhost:80/employee/704d69c3-9c7b-4261-9a79-3da9e0f23d2c",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"704d69c3-9c7b-4261-9a79-3da9e0f23d2c\",\"createdBy\":\"sinkar\",\"lastModifiedBy\":\"sinkar\",\"name\":\"Sonu22331144\",\"age\":21,\"joiningDate\":\"2011-02-27T09:15:41.80797+05:30\",\"department\":\"BIPRD\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEmployee",
+			"request": {
+				"url": "http://localhost:80/employee/636c610b-d63e-4f68-a8f0-f496d4da0a88",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
