@@ -9,3 +9,7 @@ I have used:
 6) main_test.go exists for basic test without actually deploying the service. The test however runs against actual Postgres instance instead of mocking postgres.
 7) Code coverage aspect is also shared in the main_test.go file.
 8) Postman collection 'GoLangSampleWebApp.postman_collection.json' is also shared at top level of project fo reasy testing of the code.
+
+
+Ensure that GOPATH & GOROOT are available as environment variable. Optionally, you can also add ${GOPATH}/bin to PATH variable so that you could execute
+the installed (go install) executables of go application.
