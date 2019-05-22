@@ -9,7 +9,8 @@ import (
 )
 
 func main() {
-	router := handler.Initialize()
+	//router := handler.InitializeGorillaMuxRouter()
+	router := handler.InitializeGoChiRouter()
 	name := util.GetProperty("application.name")
 	log.Println("application.name: ", name)
 	log.Fatal(http.ListenAndServe(":80", router))

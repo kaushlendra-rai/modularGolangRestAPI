@@ -10,6 +10,8 @@ I have used:
 7) Code coverage aspect is also shared in the main_test.go file.
 8) Postman collection 'GoLangSampleWebApp.postman_collection.json' is also shared at top level of project fo reasy testing of the code.
 
+9) Added code for REST API using 'go-chi' along with context usage with value
+
 
 Ensure that GOPATH & GOROOT are available as environment variable. Optionally, you can also add ${GOPATH}/bin to PATH variable so that you could execute
 the installed (go install) executables of go application.

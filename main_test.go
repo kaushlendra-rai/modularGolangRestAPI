@@ -3,7 +3,8 @@ package main_test
 import (
 	"encoding/json"
 
-	"github.com/gorilla/mux"
+	//"github.com/gorilla/mux"
+	"github.com/go-chi/chi"
 
 	//"log"
 	"net/http"
@@ -25,10 +26,12 @@ import (
 // Check the code coverage in browser
 // C:\Users\sinkar\go\gocode\src\rai>go tool cover -html coverage.out
 
-var router *mux.Router
+//var router *mux.Router
+var router *chi.Mux
 
 func TestMain(m *testing.M) {
-	router = handler.Initialize()
+	//router = handler.InitializeGorillaMuxRouter()
+	router = handler.InitializeGoChiRouter()
 	code := m.Run()
 	os.Exit(code)
 }
