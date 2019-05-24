@@ -1,6 +1,8 @@
 package handler
 
 import (
+	"net/http"
+
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/render"
@@ -40,9 +42,14 @@ func InitializeGoChiRouter() *chi.Mux {
 		})
 	})
 
+	// Accessible at URL: http://localhost/admin
+	r.Mount("/cancelable", cancelableRouter())
 	return r
 }
 
-func EmployeeInContext() {
+func cancelableRouter() http.Handler {
+	r := chi.NewRouter()
+	r.Get("/", CancelableRestAPI)
 
+	return r
 }

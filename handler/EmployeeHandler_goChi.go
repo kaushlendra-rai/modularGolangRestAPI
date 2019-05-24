@@ -89,3 +89,48 @@ func EmployeeInContext_GoChi(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
+
+func CancelableRestAPI(w http.ResponseWriter, r *http.Request) {
+	log.Println("CancelableRestAPI Handler started")
+	reqParms := r.URL.Query()
+	name := reqParms.Get("name")
+	ctx := r.Context()
+	ctx, _ = context.WithCancel(ctx)
+
+	channel := make(chan string, 1)
+
+	go processCancelableRequest(ctx, channel, name)
+
+	select {
+	case response := <-channel:
+		{
+			log.Println("Request completed successfully", response)
+			ResponseSuccess(http.StatusOK, w, "I am Admin  :)")
+		}
+	case <-ctx.Done():
+		{
+			log.Println("request Cancelled")
+			break
+		}
+	}
+}
+
+func processCancelableRequest(ctx context.Context, responseChannel chan string, name string) {
+	for i := 0; i < 10; i++ {
+
+		select {
+		case <-ctx.Done():
+			{
+				log.Println("Done with processCancelableRequest. Cancelling request.")
+				return
+			}
+		default:
+			{
+				time.Sleep(time.Second)
+				log.Println("processCancelableRequest: name: = %s   i = %v", name, i)
+			}
+		}
+	}
+
+	responseChannel <- "Done with Processing of processCancelableRequest"
+}

@@ -12,6 +12,7 @@ I have used:
 
 9) Added code for REST API using 'go-chi' along with context usage with value
 
+10) Added cancelable REST API flow (Not cancelable based on timeout (which is easy to do in the select statement)) using 'context.Context'. It cancels the main flow based on the client actually closing/cancelling the request (typically closing teh browser or stopping the request on browser).: http://localhost/cancelable
 
 Ensure that GOPATH & GOROOT are available as environment variable. Optionally, you can also add ${GOPATH}/bin to PATH variable so that you could execute
 the installed (go install) executables of go application.
